@@ -16,22 +16,22 @@ Kopējā atlaižu summa arī ir jāsaskaita un jāizvada
 
 """
 
-#irKarte =  1 # True = 1, False = 0
-
-irKarte = bool(irKarte) # pārvērš ievadīto 1 vai 0 par True vai False
+irKarte = bool(int(input("Vai Jums ir Klienta karte? (1 / 0): ")))
+summa = 0
 
 for i in range(4):
+    nosaukums = input("Ievadiet preces nosaukumu: ").lower()
+    cena = float(input("Ievadiet preces cenu: "))
 
-    nosaukums = "nosaukums"
+    if irKarte:
+        if i == 0:
+            print(f"Prece: {nosaukums.title()}, cena - {cena}€, cena ar atlaidi - {round(cena * 0.88, 2)}€")
+            summa += round(cena * 0.88, 2)
+        else:
+            print(f"Prece: {nosaukums.title()}, cena - {cena}€, cena ar atlaidi - {round(cena * 0.89, 2)}€")
+            summa += round(cena * 0.89, 2)
+    else:
+        print(f"Prece: {nosaukums.title()}, cena - {cena}€")
+        summa += round(cena)
 
-    cena = 2.5
-
-    # pārbauda vai ir atlaižu karte
-
-        # izvada cenu ar/bez atlaides un pieskaita to kopējai summai
-
-    #summa += cena #
-
-    #summa_atlaide += summa*0.11
-
-    #summa_atlaide += summa*0.12   
+print(f"Kopējā summa - {summa}€")
